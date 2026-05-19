@@ -121,6 +121,14 @@ Clears the input field after generating the table.
 
 ---
 
+## 🖼️ Project Preview
+
+<img width="691" height="572" alt="image" src="https://github.com/user-attachments/assets/5285a525-72b6-4003-84f5-ef63189bead3" />
+
+
+
+---
+
 # 💻 Complete Source Code
 
 ```delphi
