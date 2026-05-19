@@ -1,0 +1,161 @@
+unit CalcuForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFormCalcu = class(TForm)
+    EditNum1: TEdit;
+    EditNum2: TEdit;
+    Num1: TLabel;
+    Num2: TLabel;
+    Memo1: TMemo;
+    Addition: TRadioButton;
+    Subtraction: TRadioButton;
+    NumAns: TLabel;
+    Multiplication: TRadioButton;
+    RealDivision: TRadioButton;
+    IntegerDivision: TRadioButton;
+    FHeding: TLabel;
+    Remainder: TRadioButton;
+    procedure AdditionClick(Sender: TObject);
+    procedure SubtractionClick(Sender: TObject);
+    procedure MultiplicationClick(Sender: TObject);
+    procedure RealDivisionClick(Sender: TObject);
+    procedure RemainderClick(Sender: TObject);
+    procedure IntegerDivisionClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCalcu: TFormCalcu;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormCalcu.AdditionClick(Sender: TObject);
+
+var
+ inum1 , inum2 , ians : Double;
+begin
+ memo1.Clear;
+ inum1 :=  StrToFloat(EditNum1.Text);
+ inum2 := StrToFloat(EditNum2.Text);
+
+ ians := inum1 + inum2;
+
+ Memo1.Lines.Add( 'Addition is :' + FloatToStr(ians));
+
+end;
+
+procedure TFormCalcu.IntegerDivisionClick(Sender: TObject);
+var
+  inum1, inum2, ians: Integer;
+
+begin
+  Memo1.Clear;
+
+  inum1 := StrToInt(EditNum1.Text);
+  inum2 := StrToInt(EditNum2.Text);
+
+  if inum2 = 0 then
+  begin
+    ShowMessage('Cannot divide by zero');
+    Exit;
+  end;
+
+  ians := inum1 div inum2;
+
+  Memo1.Lines.Add('Integer Division is : ' + IntToStr(ians));
+end;
+
+
+procedure TFormCalcu.MultiplicationClick(Sender: TObject);
+var
+     inum1 , inum2 , ians : Double;
+begin
+
+  memo1.Clear;
+  inum1 :=  StrToFloat(EditNum1.Text);
+  inum2 := StrToFloat(EditNum2.Text);
+
+  ians := inum1 * inum2;
+
+ Memo1.Lines.Add( 'Multiplication is :' + FloatToStr(ians));
+
+end;
+
+procedure TFormCalcu.RealDivisionClick(Sender: TObject);
+   var
+     inum1 , inum2 , ians : Double;
+
+begin
+
+
+ memo1.Clear;
+
+ inum1 :=  StrToFloat(EditNum1.Text);
+ inum2 := StrToFloat(EditNum2.Text);
+
+  if inum2 = 0 then
+ begin
+      ShowMessage('cannot divide by zero');
+      Exit
+ end;
+
+ ians := inum1 / inum2;
+
+ Memo1.Lines.Add( 'Division is :' + FloatToStr(ians));
+
+
+end;
+
+procedure TFormCalcu.RemainderClick(Sender: TObject);
+var
+     inum1 , inum2 , ians : Integer;
+
+begin
+ memo1.Clear;
+
+ inum1 :=  StrToInt(EditNum1.Text);
+ inum2 := StrToInt(EditNum2.Text);
+
+   if inum2 = 0 then
+ begin
+      ShowMessage('cannot use Modulu with zero');
+      Exit
+ end;
+
+  ians := inum1 MOD inum2;
+
+ Memo1.Lines.Add( 'Remainder is :' + FloatToStr(ians));
+
+end;
+
+procedure TFormCalcu.SubtractionClick(Sender: TObject);
+var
+     inum1 , inum2 , ians : Double;
+begin
+ memo1.Clear;
+ inum1 :=  StrToFloat(EditNum1.Text);
+ inum2 := StrToFloat(EditNum2.Text);
+
+ ians := inum1 - inum2;
+
+ Memo1.Lines.Add( 'Subtraction is :' + FloatToStr(ians));
+
+
+end;
+
+end.
+
+
+
+
